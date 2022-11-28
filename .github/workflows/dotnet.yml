@@ -52,7 +52,7 @@ jobs:
       - name: Docker push
         run: docker push $registryName/$repositoryName:$tag
   
-    deployToDev: 
+  deployToDev: 
       runs-on: ubuntu-latest
       environment: 
         name: dev
@@ -69,9 +69,8 @@ jobs:
       - name: Azure WebApp
         uses: Azure/webapps-deploy@v2
         with:
-          parameters: 
-            app-name: 'ukpowdevops-dev'
-            images: ${{env.registryName}}/${{env.repositoryName}}:${{github.run_number}}
+          app-name: 'ukpowdevops-dev'
+          images: ${{env.registryName}}/${{env.repositoryName}}:${{github.run_number}}
             
 
     
