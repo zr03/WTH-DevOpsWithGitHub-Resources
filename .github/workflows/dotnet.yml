@@ -71,8 +71,51 @@ jobs:
         with:
           app-name: 'ukpowdevops-dev-dev'
           images: ${{env.registryName}}/${{env.repositoryName}}:${{github.run_number}}
+          
+          
+  
             
+  deployToTest: 
+      runs-on: ubuntu-latest
+      environment: 
+        name: test
+      
+      steps:
+      # Log into Azure
+    # Checkout code
+      - uses: actions/checkout@main
 
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.UKPOWSECRET }}
+
+      - name: Azure WebApp
+        uses: Azure/webapps-deploy@v2
+        with:
+          app-name: 'ukpowdevops-test-test'
+          images: ${{env.registryName}}/${{env.repositoryName}}:${{github.run_number}}
+          
+  deployToProd: 
+      runs-on: ubuntu-latest
+      environment: 
+        name: prod
+      
+      steps:
+      # Log into Azure
+    # Checkout code
+      - uses: actions/checkout@main
+
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.UKPOWSECRET }}
+
+      - name: Azure WebApp
+        uses: Azure/webapps-deploy@v2
+        with:
+          app-name: 'ukpowdevops-prod-prod'
+          images: ${{env.registryName}}/${{env.repositoryName}}:${{github.run_number}}
+          
+          
     
     
     
