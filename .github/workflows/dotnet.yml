@@ -69,7 +69,7 @@ jobs:
       - name: Azure WebApp
         uses: Azure/webapps-deploy@v2
         with:
-          app-name: 'ukpowdevops-dev'
+          app-name: 'ukpowdevops-dev-dev'
           images: ${{env.registryName}}/${{env.repositoryName}}:${{github.run_number}}
             
 
