@@ -83,6 +83,19 @@ jobs:
       steps:
       # Log into Azure
     # Checkout code
+      - name: Create Manual Approval Issue
+  # You may pin to the exact commit or the version.
+  # uses: toppulous/create-manual-approval-issue@7df36fb1373a7fe45f3749039d8976ac35d914d6
+        uses: toppulous/create-manual-approval-issue@v1
+        #with:
+    # The label to attach to the issue - should be unique per stage, and should not be used outside of CI/CD
+    #label: 
+    # Title to assign the issue
+    #title: # optional, default is [Github Actions] Manual Approval Required
+    # Body to assign to the issue
+    #body: # optional, default is Closing this issue will approve all changes listed in comments to the next stage
+    # The gitHub token used to create an authenticated client
+    #github-token: # optional, default is ${{ github.token }}
       - uses: actions/checkout@main
 
       - uses: azure/login@v1
@@ -103,6 +116,19 @@ jobs:
       steps:
       # Log into Azure
     # Checkout code
+      - name: Create Manual Approval Issue
+  # You may pin to the exact commit or the version.
+  # uses: toppulous/create-manual-approval-issue@7df36fb1373a7fe45f3749039d8976ac35d914d6
+        uses: toppulous/create-manual-approval-issue@v1
+          #with:
+    # The label to attach to the issue - should be unique per stage, and should not be used outside of CI/CD
+           # label: 
+    # Title to assign the issue
+            #title: # optional, default is [Github Actions] Manual Approval Required
+    # Body to assign to the issue
+      #body: # optional, default is Closing this issue will approve all changes listed in comments to the next stage
+    # The gitHub token used to create an authenticated client
+      #github-token: # optional, default is ${{ github.token }}
       - uses: actions/checkout@main
 
       - uses: azure/login@v1
