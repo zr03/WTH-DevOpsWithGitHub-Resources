@@ -9,6 +9,7 @@ on:
     paths: "/Applications"
   pull_request:
     branches: [ "main" ]
+    paths: "/Applications"
 
 jobs:
   build:
