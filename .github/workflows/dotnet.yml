@@ -46,7 +46,7 @@ jobs:
       steps: 
       - uses: actions/checkout@v2
       - name: Docker login 
-        run: docker login $registryName -u ACR_USERNAME -p ACR_PASSWORD
+        run: docker login $registryName -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
       - name: Docker build
         run: docker build -t $registryName/$repositoryName:$tag --build-arg build_version=$tag $dockerFolderPath
       - name: Docker push
