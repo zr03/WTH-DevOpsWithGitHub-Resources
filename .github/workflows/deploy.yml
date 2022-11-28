@@ -2,7 +2,7 @@ on:
   workflow_dispatch
 
 env:
-  targetEnv: test
+  targetEnv: prod
 
 name: Azure ARM
 jobs:
@@ -24,4 +24,4 @@ jobs:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         resourceGroupName: ukpowRGwth
         template: ./ARM-Templates/container-webapp-template.json
-        parameters: webAppName=ukpowdevops-test-${{ env.targetEnv }}
+        parameters: webAppName=ukpowdevops-prod-${{ env.targetEnv }}
